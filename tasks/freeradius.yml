@@ -1,12 +1,5 @@
 ---
 
-- name: Install freeradius for ubuntu22 (jammy jellyfish)
-  apt:
-    deb: http://launchpadlibrarian.net/592986098/freeradius_3.0.26~dfsg~git20220223.1.00ed0241fa-0ubuntu3_amd64.deb
-  when:
-    - ansible_distribution|string == 'Ubuntu'
-    - ansible_distribution_release|string == 'jammy'
-
 - name: Add freeradius repository into Ubuntu focal sources list
   shell: |
     echo "deb http://packages.networkradius.com/freeradius-3.0/ubuntu/focal focal main" | \
@@ -14,7 +7,7 @@
   become: true
   when:
     - ansible_distribution|string == 'Ubuntu'
-    - ansible_distribution_release|string == 'focal'
+    - ansible_distribution_release|string == 'focal' or ansible_distribution_release|string == 'jammy'
   tags:
     - molecule-idempotence-notest
 
