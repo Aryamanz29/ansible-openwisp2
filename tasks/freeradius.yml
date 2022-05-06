@@ -1,6 +1,6 @@
 ---
 
-- name: Install freeradius for Ubuntu 22 (jammy jellyfish)
+- name: Install freeradius for ubuntu22 (jammy jellyfish)
   apt:
     deb: http://launchpadlibrarian.net/592986098/freeradius_3.0.26~dfsg~git20220223.1.00ed0241fa-0ubuntu3_amd64.deb
   when:
@@ -120,8 +120,24 @@
     owner: freerad
     group: freerad
   notify: restart freeradius
+  when:
+    - ansible_distribution|string != 'Ubuntu'
+    - ansible_distribution_release|string != 'jammy'
+  
 
-- name: Enable SQL module
+- name: SQL configuration ubunut22 (jammy jellyfish)
+  template:
+    src: freeradius/sql.j2
+    dest: "/etc/freeradius/3.0/sql"
+    mode: 0640
+    owner: freerad
+    group: freerad
+  notify: restart freeradius
+  when:
+    - ansible_distribution|string == 'Ubuntu'
+    - ansible_distribution_release|string == 'jammy'
+
+- name: Enable SQL module ubunut22 (jammy jellyfish)
   file:
     src: "{{ freeradius_mods_available_dir }}/sql"
     dest: "{{ freeradius_mods_enabled_dir }}/sql"
