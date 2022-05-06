@@ -120,24 +120,8 @@
     owner: freerad
     group: freerad
   notify: restart freeradius
-  when:
-    - ansible_distribution|string != 'Ubuntu'
-    - ansible_distribution_release|string != 'jammy'
-  
 
-- name: SQL configuration ubunut22 (jammy jellyfish)
-  template:
-    src: freeradius/sql.j2
-    dest: "/etc/freeradius/3.0/sql"
-    mode: 0640
-    owner: freerad
-    group: freerad
-  notify: restart freeradius
-  when:
-    - ansible_distribution|string == 'Ubuntu'
-    - ansible_distribution_release|string == 'jammy'
-
-- name: Enable SQL module ubunut22 (jammy jellyfish)
+- name: Enable SQL module
   file:
     src: "{{ freeradius_mods_available_dir }}/sql"
     dest: "{{ freeradius_mods_enabled_dir }}/sql"
