@@ -4,6 +4,6 @@
   version: origin/develop
   name: Stouts.postfix
 
-- src: https://github.com/Aryamanz29/ansible-ow-influxdb
-  version: origin/issue-9/support-for-ubuntu22
+- src: https://github.com/openwisp/ansible-ow-influxdb
+  version: origin/master
   name: ow-influxdb
