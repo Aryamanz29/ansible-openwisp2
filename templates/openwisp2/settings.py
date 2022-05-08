@@ -527,7 +527,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 {% endif %}
 
-{% if not allow_methods_default %}
+{% if not django_cors.allow_methods_default %}
 CORS_ALLOW_METHODS = list(default_methods) + [
 {% for custom_method in django_cors.custom_methods_list %}
 '{{ custom_method }}',
@@ -535,7 +535,7 @@ CORS_ALLOW_METHODS = list(default_methods) + [
 ]
 {% endif %}
 
-{% if not allow_headers_default %}
+{% if not django_cors.allow_headers_default %}
 CORS_ALLOW_HEADERS = list(default_headers) + [
 {% for custom_header in django_cors.custom_headers_list %}
 '{{ custom_header }}',
