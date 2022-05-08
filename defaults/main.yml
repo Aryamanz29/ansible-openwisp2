@@ -178,15 +178,15 @@ cron_delete_old_postauth: "'hour': 0, 'minute': 30"
 cron_delete_old_radacct: "'hour': 1, 'minute': 30"
 
 # cross-origin resource sharing (CORS) settings
-django_cors:                                    
+django_cors:
     enabled: true
     allow_all_origins: false
     allowed_origins_list: []
     allowed_origins_regexes: false
     allowed_origins_regexes_list: []
-    urls_regex: r'^.*$'  
+    urls_regex: r'^.*$'
     allow_methods_default: true
-    custom_methods_list: [] 
+    custom_methods_list: []
     allow_headers_default: true
     custom_headers_list: []
     expose_headers_list: []
