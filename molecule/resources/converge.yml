@@ -23,6 +23,4 @@
         state: absent
 
   roles:
-    - src: https://github.com/openwisp/ansible-openwisp2.git
-      version: master
-      name: ansible-openwisp2
+    - role: ansible-openwisp2
