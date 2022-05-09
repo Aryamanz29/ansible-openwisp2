@@ -91,5 +91,5 @@
     path: /etc/nginx/nginx.conf
     regexp: '#(\s+)server_tokens off'
     replace: 'server_tokens off'
-    backup: yes
+    backup: true
   notify: restart nginx
