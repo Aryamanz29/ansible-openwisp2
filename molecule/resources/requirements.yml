@@ -7,3 +7,7 @@
 - src: https://github.com/openwisp/ansible-ow-influxdb
   version: origin/master
   name: ow-influxdb
+
+- src: https://github.com/openwisp/ansible-openwisp2.git
+  version: origin/master
+  name: ansible-openwisp2
