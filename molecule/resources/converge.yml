@@ -23,4 +23,5 @@
         state: absent
 
   roles:
-    - role: openwisp.openwisp2
+    - openwisp.openwisp2
+    - Stouts.postfix
